@@ -1,115 +1,177 @@
-# easy-player
+# EasyPlayer
 
-> 集 rtmp, hls, flv, websocket 于一身的`网页直播/点播`播放器, 使用简单, 功能强大
+## 简介
 
-![](http://ww1.sinaimg.cn/large/79414a05gy1fmpjkmmm57j20cz0lutjj.jpg)
+> 集 flv.js, rtmp, hls, websocket 于一身的`网页直播/点播`播放器, 使用简单, 功能强大
 
-## 属性(Property)
+## 功能说明
 
-- `video-url` 视频流地址 String default ''
-- `video-title` 视频右上角显示的标题 String default ''
-- `poster` 视频封面图片 String default ''
-- `autoplay` 自动播放 Boolean default true
-- `loop` 是否循环播放 Boolean default false
-- `live` 是否直播, 标识要不要显示进度条 Boolean default false
-- `alt` 视频流地址没有指定情况下, 视频所在区域显示的文字, 相当于 html img 标签的 alt 属性 String default '无信号'
-- `muted` 是否静音 Boolean default false
-- `aspect` 视频显示区域的宽高比 String default '16:9'
-- `loading` 指示加载状态, 支持 sync 修饰符
-- `fluent` 流畅模式, Boolean default true
-- `stretch` 是否拉伸, Boolean default false
-- `timeout` m3u8 加载超时(秒) Number default 20
-- `show-custom-button` 是否在工具栏显示自定义按钮(极速/流畅, 拉伸/标准), Boolean default true
+支持 MP4 播放
 
-## 方法(Medthod)
+支持 m3u8/HLS 播放;
 
-- `getCurrentTime` 获取当前播放时间进度, 同步返回播放时间进度数据
-- `snap` 外部 API 方式获取快照, 快照获取成功后, 触发 snapOutside Event
+支持 HTTP-FLV/WS-FLV 播放;
 
-## 事件(Event)
+支持 RTMP 播放;
 
-- `message` 触发通知消息, 参数: { type: '', message: ''}
-- `ended` 播放结束, 参数: 无
-- `timeupdate` 进度更新, 参数: 当前时间进度
-- `pause` 暂停, 参数: 当前时间进度
-- `play` 播放, 参数: 当前时间进度,
-- `snapOutside` 外部快照回调, 参数: 快照 Base64 数据
-- `snapInside` 内部快照回调, 由控制栏快照按钮触发, 参数: 快照 Base64 数据
+支持直播和点播播放;
 
-## 安装(Install)
+支持播放器快照截图;
+
+支持点播多清晰度播放;
+
+支持全屏或比例显示;
+
+自带的 flash 支持极速和流畅模式;
+
+自带的 flash 支持 HTTP-FLV 播放;
+
+自动检测 IE 浏览器兼容播放;
+
+## HTML 集成示例
 
 - 安装
 
-`npm install easy-player`       
-
-- 在 Vue 中使用
-
-copy node_modules/easy-player/dist/component/easy-player.swf 到 www 根目录
-
-copy node_modules/easy-player/dist/component/crossdomain.xml 到 www 根目录 
-
-copy node_modules/easy-player/dist/component/easy-player-lib.min.js 到 www 根目录 
-
-以上 copy 操作通过 webpack 完成, 编辑你的 webpack.config.js
-
-```js
-
-......
-    // copy js lib and swf files to dist dir
-    new CopyWebpackPlugin([
-        { from: 'node_modules/easy-player/dist/component/crossdomain.xml'},
-        { from: 'node_modules/easy-player/dist/component/easy-player.swf'},
-        { from: 'node_modules/easy-player/dist/component/easy-player-lib.min.js', to: 'js/'}
-    ]),
-......
-
+```
+  npm install @easydarwin/easyplayer --save
 ```
 
-在 html 中引用 www 根目录 easy-player-lib.min.js
+- Vue 集成调用
 
-编辑你的 Vue 组件
+copy node_modules/@easydarwin/easyplayer/dist/component/EasyPlayer.swf 到 静态文件 根目录
 
-```vue
+copy node_modules/@easydarwin/easyplayer/dist/component/crossdomain.xml 到 静态文件 根目录
 
-......
+copy node_modules/@easydarwin/easyplayer/dist/component/EasyPlayer-lib.min.js 到 静态文件 根目录
 
-import EasyPlayer from 'easy-player'
+**注意：** 没有调用会出现无法加载对应插件的报错
 
-......
-  components: {
-    EasyPlayer
-  }
-......
+在 html 中引用 dist/component/easy-player-lib.min.js
 
-<EasyPlayer :videoUrl="videoUrl" fluent autoplay live stretch></EasyPlayer>
+#### demo
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title>EasyPlayer-demo</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="./easy-player-lib.min.js"></script>
+  </head>
+  <body>
+    <noscript>
+      <strong
+        >We're sorry but easynvr-token doesn't work properly without JavaScript
+        enabled. Please enable it to continue.</strong
+      >
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
 ```
+
+```html
+......
+
+<EasyPlayer
+  :videoUrl="videoUrl"
+  :aspect="aspect"
+  live
+  @message="$message"
+  :fluent="fluent"
+  :autoplay="autoplay"
+  stretch
+></EasyPlayer>
+
+...... ...... import EasyPlayer from '@easydarwin/easyplayer'; ......
+components: { EasyPlayer }
+```
+
+源码演示：[github-demo](https://github.com/EasyNVR/EasyNVR)
 
 - 脱离 Vue 使用
 
-copy node_modules/easy-player/dist/element/easy-player.swf 到 www 根目录
+copy dist/element/easy-player-element.min.js 到 www 根目录
 
-copy node_modules/easy-player/dist/element/crossdomain.xml 到 www 根目录
-
-copy node_modules/easy-player/dist/element/easy-player-element.min.js 到 www 根目录 
-
-在 html 中引用 www 根目录 easy-player-element.min.js
-
-HTML 集成 Demo
+在 html 中引用 dist/element/easy-player-element.min.js
 
 ```html
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>easy-player</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-    <body>      
-        <easy-player video-url="rtmp://live.hkstv.hk.lxdns.com/live/hks" live="true" stretch="true"></easy-player>
-        <easy-player video-url="http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8" live="false" stretch="true"></easy-player>
-        <easy-player video-url="http://live.hkstv.hk.lxdns.com/flv/hks.flv" live="true" stretch="true"></easy-player>
-        <easy-player video-url="ws://192.168.1.65:3000/play?stream=rtsp://username:password@192.168.1.64:5504/Streaming/Channels/102"></easy-player>
-    <script type="text/javascript" src="easy-player-element.min.js"></script></body>
+  <head>
+    <title>liveplayer</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+      name="viewport"
+    />
+    <script type="text/javascript" src="liveplayer-element.min.js"></script>
+  </head>
+  <body>
+    <easy-player
+      video-url="rtmp://live.hkstv.hk.lxdns.com/live/hks2"
+      live="true"
+      stretch="true"
+    ></easy-player>
+    <easy-player
+      video-url="http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8"
+      live="false"
+      stretch="true"
+    ></easy-player>
+    <easy-player
+      video-url="http://live.hkstv.hk.lxdns.com/flv/hks.flv"
+      live="true"
+      stretch="true"
+    ></easy-player>
+  </body>
 </html>
 ```
+
+##效果演示
+
+![](http://ww1.sinaimg.cn/large/79414a05gy1fmpjkmmm57j20cz0lutjj.jpg)
+
+## 配置属性
+
+| 参数               | 说明                                             | 类型                       | 默认值 |
+| ------------------ | ------------------------------------------------ | -------------------------- | ------ |
+| video-url          | 视频地址                                         | String                     | -      |
+| video-title        | 视频右上角显示的标题                             | String                     | -      |
+| snap-url           | 视频封面图片                                     | String                     | -      |
+| auto-play          | 自动播放                                         | Boolean                    | true   |
+| live               | 是否直播, 标识要不要显示进度条                   | Boolean                    | true   |
+| alt                | 视频流地址没有指定情况下, 视频所在区域显示的文字 | String                     | 无信号 |
+| muted              | 是否静音                                         | Boolean                    | false  |
+| aspect             | 视频显示区域的宽高比                             | String                     | 16:9   |
+| isaspect           | 视频显示区域是否强制宽高比                       | Boolean                    | true   |
+| loading            | 指示加载状态, 支持 sync 修饰符                   | String                     | -      |
+| fluent             | 流畅模式                                         | Boolean                    | true   |
+| timeout            | 加载超时(秒)                                     | Number                     | 20     |
+| stretch            | 是否不同分辨率强制铺满窗口                       | Boolean                    | false  |
+| show-custom-button | 是否在工具栏显示自定义按钮(极速/流畅, 拉伸/标准) | Boolean                    | true   |
+| isresolution       | 是否在播放 m3u8 时显示多清晰度选择               | Boolean                    | false  |
+| isresolution       | 供选择的清晰度 "yh,fhd,hd,sd", yh:原始分辨率     | fhd:超清，hd:高清，sd:标清 | -      |
+| resolutiondefault  | 默认播放的清晰度                                 | String                     | hd     |
+
+### HTTP-FLV 播放相关属性
+
+| 属性     | 说明                                   | 类型    | 默认值             |
+| -------- | -------------------------------------- | ------- | ------------------ |
+| hasaudio | 是否有音频，传递该属性可以加快启播速度 | Boolean | 默认不配置自动判断 |
+| hasvideo | 是否有视频，传递该属性可以加快启播速度 | Boolean | 默认不配置自动判断 |
+
+## 事件回调
+
+| 方法名     | 说明         | 参数                  |
+| ---------- | ------------ | --------------------- |
+| video-url  | 触发通知消息 | type: '', message: '' |
+| ended      | 播放结束     | -                     |
+| timeupdate | 进度更新     | 当前时间进度          |
+| pause      | 暂停         | 当前时间进度          |
+| play       | 播放         | 当前时间进度          |
