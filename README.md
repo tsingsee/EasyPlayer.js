@@ -32,75 +32,13 @@
 
 ## HTML 集成示例
 
-- 安装
+- 使用方式
 
-```
-  npm install @easydarwin/easyplayer --save
-```
+- [x] 普通集成
 
-- Vue 集成调用
+copy dist/element/EasyPlayer-element.min.js 到 www 根目录
 
-copy node_modules/@easydarwin/easyplayer/dist/component/EasyPlayer.swf 到 静态文件 根目录
-
-copy node_modules/@easydarwin/easyplayer/dist/component/crossdomain.xml 到 静态文件 根目录
-
-copy node_modules/@easydarwin/easyplayer/dist/component/EasyPlayer-lib.min.js 到 静态文件 根目录
-
-**注意：** 没有调用会出现无法加载对应插件的报错
-
-在 html 中引用 dist/component/easy-player-lib.min.js
-
-#### demo
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
-    <title>EasyPlayer-demo</title>
-    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-    <script src="./easy-player-lib.min.js"></script>
-  </head>
-  <body>
-    <noscript>
-      <strong
-        >We're sorry but easynvr-token doesn't work properly without JavaScript
-        enabled. Please enable it to continue.</strong
-      >
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
-</html>
-```
-
-```html
-......
-
-<EasyPlayer
-  :videoUrl="videoUrl"
-  :aspect="aspect"
-  live
-  @message="$message"
-  :fluent="fluent"
-  :autoplay="autoplay"
-  stretch
-></EasyPlayer>
-
-...... ...... import EasyPlayer from '@easydarwin/easyplayer'; ......
-components: { EasyPlayer }
-```
-
-源码演示：[github-demo](https://github.com/EasyNVR/EasyNVR)
-
-- 脱离 Vue 使用
-
-copy dist/element/easy-player-element.min.js 到 www 根目录
-
-在 html 中引用 dist/element/easy-player-element.min.js
+在 html 中引用 dist/element/EasyPlayer-element.min.js
 
 ```html
 <!DOCTYPE html>
@@ -113,7 +51,7 @@ copy dist/element/easy-player-element.min.js 到 www 根目录
       content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
       name="viewport"
     />
-    <script type="text/javascript" src="liveplayer-element.min.js"></script>
+    <script type="text/javascript" src="EasyPlayer-element.min.js"></script>
   </head>
   <body>
     <easy-player
@@ -135,9 +73,75 @@ copy dist/element/easy-player-element.min.js 到 www 根目录
 </html>
 ```
 
+- [x] vue集成
+
+```
+  npm install @easydarwin/easyplayer --save
+```
+
+- Vue 集成调用
+
+copy node_modules/@easydarwin/easyplayer/dist/component/EasyPlayer.swf 到 静态文件 根目录
+
+copy node_modules/@easydarwin/easyplayer/dist/component/crossdomain.xml 到 静态文件 根目录
+
+copy node_modules/@easydarwin/easyplayer/dist/component/EasyPlayer-lib.min.js 到 静态文件 根目录
+
+**注意：** 没有调用会出现无法加载对应插件的报错
+
+在 html 中引用 dist/component/EasyPlayer-lib.min.js
+
+#### demo
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title>EasyPlayer-demo</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="./EasyPlayer-lib.min.js"></script>
+  </head>
+  <body>
+    <noscript>
+      <strong
+        >We're sorry but easynvr-token doesn't work properly without JavaScript
+        enabled. Please enable it to continue.</strong
+      >
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
+```
+
 ##效果演示
 
 ![](http://ww1.sinaimg.cn/large/79414a05gy1fmpjkmmm57j20cz0lutjj.jpg)
+
+- [x] npm集成
+
+```html
+......
+
+<EasyPlayer
+  :videoUrl="videoUrl"
+  :aspect="aspect"
+  live
+  @message="$message"
+  :fluent="fluent"
+  :autoplay="autoplay"
+  stretch
+></EasyPlayer>
+
+...... ...... import EasyPlayer from '@easydarwin/easyplayer'; ......
+components: { EasyPlayer }
+```
+
+源码演示：[github-demo](https://github.com/EasyNVR/EasyNVR)
 
 ## 配置属性
 
