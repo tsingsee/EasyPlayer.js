@@ -1,32 +1,34 @@
-# EasyPlayer
+# EasyPlayer.js
 
 ## 简介
 
-> 集 flv.js, rtmp, hls, websocket 于一身的`网页直播/点播`播放器, 使用简单, 功能强大
+集播放http-flv, rtmp, hls, websocket 于一身的H5`视频直播/视频点播`播放器, 使用简单, 功能强大；
 
 ## 功能说明
 
-支持 MP4 播放
+- [x] 支持 MP4 播放
 
-支持 m3u8/HLS 播放;
+- [x] 支持 m3u8/HLS 播放;
 
-支持 HTTP-FLV/WS-FLV 播放;
+- [x] 支持 HTTP-FLV/WS-FLV 播放;
 
-支持 RTMP 播放;
+- [x] 支持 RTMP 播放;
 
-支持直播和点播播放;
+- [x] 支持直播和点播播放;
 
-支持播放器快照截图;
+- [x] 支持播放器快照截图;
 
-支持点播多清晰度播放;
+- [x] 支持点播多清晰度播放;
 
-支持全屏或比例显示;
+- [x] 支持全屏或比例显示;
 
-自带的 flash 支持极速和流畅模式;
+- [x] 自带的 flash 支持极速和流畅模式;
 
-自带的 flash 支持 HTTP-FLV 播放;
+- [x] 自带的 flash 支持 HTTP-FLV 播放;
 
-自动检测 IE 浏览器兼容播放;
+- [x] 自动检测 IE 浏览器兼容播放;
+
+- [x] 支持重连播放；
 
 ## HTML 集成示例
 
@@ -175,3 +177,27 @@ copy dist/element/easy-player-element.min.js 到 www 根目录
 | timeupdate | 进度更新     | 当前时间进度          |
 | pause      | 暂停         | 当前时间进度          |
 | play       | 播放         | 当前时间进度          |
+
+
+## 更多流媒体音视频资源
+
+EasyDarwin开源流媒体服务器：<a href="http://www.easydarwin.org" target="_blank" title="EasyDarwin开源流媒体服务器">www.EasyDarwin.org</a>
+
+EasyDSS高性能互联网直播服务：<a href="http://www.easydss.com" target="_blank" title="EasyDSS高性能互联网直播服务">www.EasyDSS.com</a>
+
+EasyNVR安防视频可视化服务：<a href="http://www.easynvr.com" target="_blank" title="EasyNVR安防视频可视化服务">www.EasyNVR.com</a>
+
+EasyNVS视频综合管理平台：<a href="http://www.easynvs.com" target="_blank" title="EasyNVS视频综合管理平台">www.EasyNVS.com</a>
+
+EasyNTS云组网：<a href="http://www.easynts.com" target="_blank" title="EasyNTS云组网">www.EasyNTS.com</a>
+
+EasyGBS国标GB/T28181服务器：<a href="http://www.easygbs.com" target="_blank" title="EasyGBS国标GB/T28181视频服务器">www.EasyGBS.com</a>
+
+EasyRTS应急指挥平台：<a href="http://www.easyrts.com" target="_blank" title="EasyRTS应急指挥平台">www.EasyRTS.com</a>
+
+TSINGSEE青犀开放平台：<a href="http://open.tsingsee.com" target="_blank" title="TSINGSEE青犀开放平台">open.TSINGSEE.com</a>
+
+Copyright © <a href="http://www.tsingsee.com" target="_blank" title="青犀TSINGSEE">www.TSINGSEE.com</a> Team 2012-2019
+
+![青犀TSINGSEE](http://www.easydarwin.org/public/images/tsingsee_qrcode_160.jpg)
+
