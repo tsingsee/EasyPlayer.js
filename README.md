@@ -120,7 +120,7 @@ copy node_modules/@easydarwin/easyplayer/dist/component/EasyPlayer-lib.min.js �
 
 ##效果演示
 
-![](http://ww1.sinaimg.cn/large/79414a05gy1fmpjkmmm57j20cz0lutjj.jpg)
+![](http://www.easydarwin.org/github/images/easyplayer/easyplayer.js/easyplayer.js.20190923.png)
 
 - [x] npm集成
 
@@ -152,6 +152,8 @@ components: { EasyPlayer }
 | snap-url           | 视频封面图片                                     | String                     | -      |
 | auto-play          | 自动播放                                         | Boolean                    | true   |
 | live               | 是否直播, 标识要不要显示进度条                   | Boolean                    | true   |
+| speed              | 是否显示倍速播放按钮。注意：当live为true时，此属性不生效 |Boolean                | true   |
+| loop               | 是否轮播。                                      |Boolean                | false  |
 | alt                | 视频流地址没有指定情况下, 视频所在区域显示的文字 | String                     | 无信号 |
 | muted              | 是否静音                                         | Boolean                    | false  |
 | aspect             | 视频显示区域的宽高比                             | String                     | 16:9   |
@@ -166,7 +168,7 @@ components: { EasyPlayer }
 | resolutiondefault  | 默认播放的清晰度                                 | String                     | hd     |
 
 ### HTTP-FLV 播放相关属性
-
+#### 注意：此属性只在播放flv格式的流时生效。
 | 属性     | 说明                                   | 类型    | 默认值             |
 | -------- | -------------------------------------- | ------- | ------------------ |
 | hasaudio | 是否有音频，传递该属性可以加快启播速度 | Boolean | 默认不配置自动判断 |
