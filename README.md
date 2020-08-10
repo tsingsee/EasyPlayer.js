@@ -152,21 +152,6 @@ play(url,autoplay,currentTime)
 | currentTime|  视频开始时间(换算成秒)                   | Number | 默认this            |
 
 ## 事件
-   pause（）暂停事件
-   
-   resume() 恢复事件
-   
-   stop （）停止事件
-   
-   openAudio（）开启声音
-   
-   closeAudio（）关闭声音
-
-   destroy()销毁播放器实例
-
-   startLoding() 启动播放器loding加载动画
-
-   endLoding() 关闭播放器loding加载动画
 
 | 方法名     | 说明         | 参数                                                    |
 | ---------- | ------------ | ---------------------                                  |
