@@ -1,9 +1,8 @@
-
 # EasyPlayer.js
 
 ## 简介
 
-集播放http-flv/ws-flv, hls, websocket 于一身的H5`视频直播/视频点播`播放器, 使用简单, 功能强大；
+集播放http-flv, rtmp, hls, websocket 于一身的H5`视频直播/视频点播`播放器, 使用简单, 功能强大；
 
 ## 功能说明
 
@@ -13,11 +12,21 @@
 
 - [x] 支持 HTTP-FLV/WS-FLV 播放;
 
-- [x] 支持 H265 播放;
+- [x] 支持 RTMP 播放;
 
 - [x] 支持直播和点播播放;
 
-- [x] 支持全屏显示;
+- [x] 支持播放器快照截图;
+
+- [x] 支持点播多清晰度播放;
+
+- [x] 支持全屏或比例显示;
+
+- [x] 自带的 flash 支持极速和流畅模式;
+
+- [x] 自带的 flash 支持 HTTP-FLV 播放;
+
+- [x] 自动检测 IE 浏览器兼容播放;
 
 - [x] 支持重连播放；
 
@@ -27,54 +36,60 @@
 
 - [x] 普通集成
 
-copy  EasyWasmPlayer.js 到项目中
+copy dist/element/EasyPlayer-element.min.js 到 www 根目录
 
-copy libDecoder.wasm到项目或者www的根目录（一定要根目录）
-
-在 html 中引用 EasyWasmPlayer.js
+在 html 中引用 dist/element/EasyPlayer-element.min.js
 
 ```html
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="../dist/EasyWasmPlayer.js"></script>
-</head>
-<body>
-    <div style="width:600px;height:400px;background-color:black;margin-left:200px">
-        <div id="265Player">
-        </div>
-        <script>
-            callbackfun = function (e) {
-                console.log(e);
-            }
-            var 265Player = new WasmPlayer(null,'265Player'，callbackFun,{cbUserPtr:this, decodeType:"auto", openAudio:1, BigPlay:false, Height:true})
-        </script>
-    </div>
-</body>
-
+<html>
+  <head>
+    <title>liveplayer</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+      name="viewport"
+    />
+    <script type="text/javascript" src="EasyPlayer-element.min.js"></script>
+  </head>
+  <body>
+    <easy-player
+      video-url="rtmp://live.hkstv.hk.lxdns.com/live/hks2"
+      live="true"
+      stretch="true"
+    ></easy-player>
+    <easy-player
+      video-url="http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8"
+      live="false"
+      stretch="true"
+    ></easy-player>
+    <easy-player
+      video-url="http://live.hkstv.hk.lxdns.com/flv/hks.flv"
+      live="true"
+      stretch="true"
+    ></easy-player>
+  </body>
 </html>
 ```
 
 - [x] vue集成
 
 ```
-  npm install @easydarwin/easywasmplayer --save
+  npm install @easydarwin/easyplayer --save
 ```
 
 - Vue 集成调用
 
-copy node_modules/@easydarwin/easyplayer/EasyWasmPlayer.js 到 静态文件 根目录
+copy node_modules/@easydarwin/easyplayer/dist/component/EasyPlayer.swf 到 静态文件 根目录
 
-copy node_modules/@easydarwin/easyplayer/libDecoder.wasm 到 项目 “根目录”
+copy node_modules/@easydarwin/easyplayer/dist/component/crossdomain.xml 到 静态文件 根目录
 
+copy node_modules/@easydarwin/easyplayer/dist/component/EasyPlayer-lib.min.js 到 静态文件 根目录
 
-**注意：** 若出现libDecoder.wasm的文件错误是此文件路径不对
+**注意：** 没有调用会出现无法加载对应插件的报错
 
-在 html 中引用 EasyWasmPlayer.js
+在 html 中引用 dist/component/EasyPlayer-lib.min.js
 
 #### demo
 
@@ -88,7 +103,7 @@ copy node_modules/@easydarwin/easyplayer/libDecoder.wasm 到 项目 “根目录
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
     <title>EasyPlayer-demo</title>
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-    <script src="./EasyWasmPlayer.js"></script>
+    <script src="./EasyPlayer-lib.min.js"></script>
   </head>
   <body>
     <noscript>
@@ -102,67 +117,72 @@ copy node_modules/@easydarwin/easyplayer/libDecoder.wasm 到 项目 “根目录
   </body>
 </html>
 ```
+
+##效果演示
+
+![](http://www.easydarwin.org/github/images/easyplayer/easyplayer.js/easyplayer.js.20190923.png)
+
 - [x] npm集成
 
 ```html
 ......
 
- <div style="width:600px;height:400px;background-color:black;margin-left:200px">
-    <div id="265Player">
-   </div>
- </div>
+<EasyPlayer
+  :videoUrl="videoUrl"
+  :aspect="aspect"
+  live
+  @message="$message"
+  :fluent="fluent"
+  :autoplay="autoplay"
+  stretch
+></EasyPlayer>
 
-...... ...... import EasyPlayer from '@easydarwin/easywasmplayer'; ......
+...... ...... import EasyPlayer from '@easydarwin/easyplayer'; ......
 components: { EasyPlayer }
-mounted(){
-   var 265Player = new WasmPlayer(null,'265Player'，this.callbackFun,{cbUserPtr:this, decodeType:"auto", openAudio:1, BigPlay:false, Height:true})
-},
-methods:{
-    callbackfun = function (e) {
-                console.log(e);
-            }
-}
 ```
 
+源码演示：[github-demo](https://github.com/EasyNVR/EasyNVR)
 
-
-## 实例化参数
-
-var player = new wasmPlayer(url,ID，callbackFun,{cbUserPtr:this, decodeType"auto", openAudio"1" or "0", BigPlay"true" or "false", Height:" true" or "false});
+## 配置属性
 
 | 参数               | 说明                                             | 类型                       | 默认值 |
 | ------------------ | ------------------------------------------------ | -------------------------- | ------ |
-| url                | 视频地址                                          | String                     | null    |
-| ID                 | 播放器实例的divID  (必传)                          | String                     | -      |
-| callbackFun        | 事件回调                                          |                            | -      |
-| cbUserPtr          | 自定义指针  (this的指向)                           |                            | this   |
-| decodeType         | 解码类型                                           |                            | auto   |
-| openAudio          | 是否打开音频                                       |Boolean                    | false   |
-| BigPlay            | 是否开启大的播放按钮                                |Boolean                     | false  |
-| Height             | 播放器尺寸是否继承父盒子的                          | Boolean                     | false |
+| video-url          | 视频地址                                         | String                     | -      |
+| video-title        | 视频右上角显示的标题                             | String                     | -      |
+| snap-url           | 视频封面图片                                     | String                     | -      |
+| auto-play          | 自动播放                                         | Boolean                    | true   |
+| live               | 是否直播, 标识要不要显示进度条                   | Boolean                    | true   |
+| speed              | 是否显示倍速播放按钮。注意：当live为true时，此属性不生效 |Boolean                | true   |
+| loop               | 是否轮播。                                      |Boolean                | false  |
+| alt                | 视频流地址没有指定情况下, 视频所在区域显示的文字 | String                     | 无信号 |
+| muted              | 是否静音                                         | Boolean                    | false  |
+| aspect             | 视频显示区域的宽高比                             | String                     | 16:9   |
+| isaspect           | 视频显示区域是否强制宽高比                       | Boolean                    | true   |
+| loading            | 指示加载状态, 支持 sync 修饰符                   | String                     | -      |
+| fluent             | 流畅模式                                         | Boolean                    | true   |
+| timeout            | 加载超时(秒)                                     | Number                     | 20     |
+| stretch            | 是否不同分辨率强制铺满窗口                       | Boolean                    | false  |
+| show-custom-button | 是否在工具栏显示自定义按钮(极速/流畅, 拉伸/标准) | Boolean                    | true   |
+| isresolution       | 是否在播放 m3u8 时显示多清晰度选择               | Boolean                    | false  |
+| isresolution       | 供选择的清晰度 "yh,fhd,hd,sd", yh:原始分辨率     | fhd:超清，hd:高清，sd:标清 | -      |
+| resolutiondefault  | 默认播放的清晰度                                 | String                     | hd     |
 
+### HTTP-FLV 播放相关属性
+#### 注意：此属性只在播放flv格式的流时生效。
+| 属性     | 说明                                   | 类型    | 默认值             |
+| -------- | -------------------------------------- | ------- | ------------------ |
+| hasaudio | 是否有音频，传递该属性可以加快启播速度 | Boolean | 默认不配置自动判断 |
+| hasvideo | 是否有视频，传递该属性可以加快启播速度 | Boolean | 默认不配置自动判断 |
 
-### 录像播放相关属性
-#### 注意：currentTime属性只在播放录像m3u8 有结束标记（#EXT-X-ENDLIST）的的流时生效。
-play(url,autoplay,currentTime)
-| 属性        | 说明                                   | 类型    | 默认值             |
-| --------   | -------------------------------------- | ------- | ------------------|
-| url        | 播放流地址                              | String | -                  |
-| autoplay   |   是否自动播放                           | Boolean | 默认0             |
-| currentTime|  视频开始时间(换算成秒)                   | Number | 默认this            |
+## 事件回调
 
-## 事件
-
-| 方法名     | 说明         | 参数                                                    |
-| ---------- | ------------ | ---------------------                                  |
-| play       | 播放事件      | url:'流地址',autoplay: '自动播放',currentTime:'开始时间' |
-| pause      | 播放暂停     | -                                                       |
-| stop       | 停止播放     | -                                                       |
-| openAudio  | 打开声音      | -                                                      |
-| closeAudio | 关闭声音      | -                                                      |
-| startLoding| 开始加载动画  | -                                                   |
-| endLoding  | 结束加载动画  | -                                                   |
-
+| 方法名     | 说明         | 参数                  |
+| ---------- | ------------ | --------------------- |
+| video-url  | 触发通知消息 | type: '', message: '' |
+| ended      | 播放结束     | -                     |
+| timeupdate | 进度更新     | 当前时间进度          |
+| pause      | 暂停         | 当前时间进度          |
+| play       | 播放         | 当前时间进度          |
 
 
 ## 更多流媒体音视频资源
