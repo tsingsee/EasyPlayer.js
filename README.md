@@ -67,9 +67,9 @@ copy libDecoder.wasm到项目或者www的根目录（一定要根目录）
 
 - Vue 集成调用
 
-copy node_modules/@easydarwin/easyplayer/EasyWasmPlayer.js 到 静态文件 根目录
+copy node_modules/@easydarwin/easywasmplayer/EasyWasmPlayer.js 到 静态文件 根目录
 
-copy node_modules/@easydarwin/easyplayer/libDecoder.wasm 到 项目 “根目录”
+copy node_modules/@easydarwin/easywasmplayer/libDecoder.wasm 到 项目 “根目录”
 
 
 **注意：** 若出现libDecoder.wasm的文件错误是此文件路径不对
