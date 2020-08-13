@@ -1,9 +1,9 @@
 
-     # EasyPlayer.js
+# EasyPlayer.js
 
 ## 简介
 
-集播放http-flv/WS-FLV , hls, websocket 于一身的H5`视频直播/视频点播`播放器, 使用简单, 功能强大；
+集播放http-flv/ws-flv, hls, websocket 于一身的H5`视频直播/视频点播`播放器, 使用简单, 功能强大；
 
 ## 功能说明
 
@@ -62,7 +62,7 @@ copy libDecoder.wasm到项目或者www的根目录（一定要根目录）
 - [x] vue集成
 
 ```
-  npm install @easydarwin/easyplayer --save
+  npm install @easydarwin/easywasmplayer --save
 ```
 
 - Vue 集成调用
@@ -112,7 +112,7 @@ copy node_modules/@easydarwin/easyplayer/libDecoder.wasm 到 项目 “根目录
    </div>
  </div>
 
-...... ...... import EasyPlayer from '@easydarwin/easyplayer'; ......
+...... ...... import EasyPlayer from '@easydarwin/easywasmplayer'; ......
 components: { EasyPlayer }
 mounted(){
    var 265Player = new WasmPlayer(null,'265Player'，this.callbackFun,{cbUserPtr:this, decodeType:"auto", openAudio:1, BigPlay:false, Height:true})
