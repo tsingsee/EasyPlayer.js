@@ -102,29 +102,6 @@ copy node_modules/@easydarwin/easywasmplayer/libDecoder.wasm 到 项目 “根�
   </body>
 </html>
 ```
-- [x] npm集成
-
-```html
-......
-
- <div style="width:600px;height:400px;background-color:black;margin-left:200px">
-    <div id="265Player">
-   </div>
- </div>
-
-...... ...... import EasyPlayer from '@easydarwin/easywasmplayer'; ......
-components: { EasyPlayer }
-mounted(){
-   var 265Player = new WasmPlayer(null,'265Player'，this.callbackFun,{cbUserPtr:this, decodeType:"auto", openAudio:1, BigPlay:false, Height:true})
-},
-methods:{
-    callbackfun = function (e) {
-                console.log(e);
-            }
-}
-```
-
-
 
 ## 实例化参数
 
