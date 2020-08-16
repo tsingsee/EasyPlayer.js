@@ -3,11 +3,12 @@
 
 ## 简介
 
-集播放http-flv/ws-flv, hls, websocket 于一身的H5`视频直播/视频点播`播放器, 使用简单, 功能强大；
+EasyPlayer.js H5播放器，是一款能够同时支持HTTP、RTMP、HTTP-FLV、HLS（m3u8）视频直播与视频点播等多种协议，支持H.264、H.265、AAC等多种音视频编码格式，支持mse、wasm等多种解码方式，支持Windows、Linux、Android、iOS全平台终端的H5播放器。
+
 
 ## 功能说明
 
-- [x] 支持 MP4 播放
+- [x] 支持 HTTP-MP4 播放
 
 - [x] 支持 m3u8/HLS 播放;
 
@@ -152,7 +153,7 @@ EasyNVR安防视频可视化服务：<a href="http://www.easynvr.com" target="_b
 
 EasyNVS视频综合管理平台：<a href="http://www.easynvs.com" target="_blank" title="EasyNVS视频综合管理平台">www.EasyNVS.com</a>
 
-EasyNTS云组网：<a href="http://www.easynts.com" target="_blank" title="EasyNTS云组网">www.EasyNTS.com</a>
+EasyNTS上云网关：<a href="http://www.easynts.com" target="_blank" title="EasyNTS云组网">www.EasyNTS.com</a>
 
 EasyGBS国标GB/T28181服务器：<a href="http://www.easygbs.com" target="_blank" title="EasyGBS国标GB/T28181视频服务器">www.EasyGBS.com</a>
 
