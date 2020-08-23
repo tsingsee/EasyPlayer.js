@@ -141,9 +141,6 @@ play(url,autoplay,currentTime)
 | endLoding  | 结束加载动画  | -                                                   |
 
 
-
-<br/>
-
 ### ✈ 更多视频解决方案资源汇总
 
 - 流媒体技术：<br/>
