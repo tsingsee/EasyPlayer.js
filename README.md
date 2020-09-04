@@ -48,7 +48,7 @@ copy libDecoder.wasm到项目或者www的根目录（一定要根目录）
         <div id="265Player">
         </div>
         <script>
-            callbackfun = function (e) {
+            callbackFun = function (e) {
                 console.log(e);
             }
             var 265Player = new WasmPlayer(null,'265Player'，callbackFun,{cbUserPtr:this, decodeType:"auto", openAudio:1, BigPlay:false, Height:true})
