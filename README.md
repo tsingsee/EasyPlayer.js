@@ -139,6 +139,8 @@ play(url,autoplay,currentTime)
 | closeAudio | 关闭声音      | -                                                      |
 | startLoding| 开始加载动画  | -                                                   |
 | endLoding  | 结束加载动画  | -                                                   |
+| fullScreen  | 开启或退出全屏  | -                                                   |
+
 
 <br/>
 
