@@ -150,7 +150,6 @@ var player = new wasmPlayer(url,ID，callbackFun,{cbUserPtr:this, decodeType"aut
 | openAudio          | 是否打开音频                                       | Boolean                    | false   |
 | BigPlay            | 是否开启大的播放按钮                               | Boolean                     | false  |
 | Height             | 播放器尺寸是否继承父盒子的                          | Boolean                     | false |
-| UnLogo             | 是否隐藏LOGO                                      | Boolean                      | false |
 
 
 ### 录像播放相关属性
