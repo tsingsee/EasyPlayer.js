@@ -1,8 +1,8 @@
-# EasyPlayer.js
+# EasyWasmPlayer.js
 
 ## 简介
 
-EasyPlayer.js H5播放器，是一款能够同时支持HTTP、RTMP、HTTP-FLV、HLS（m3u8）视频直播与视频点播等多种协议，支持H.264、H.265、AAC等多种音视频编码格式，支持mse、wasm等多种解码方式，支持Windows、Linux、Android、iOS全平台终端的H5播放器。
+EasyWasmPlayer.js H5播放器，是一款能够同时支持HTTP、RTMP、HTTP-FLV、HLS（m3u8）视频直播与视频点播等多种协议，支持H.264、H.265、AAC等多种音视频编码格式，支持mse、wasm等多种解码方式，支持Windows、Linux、Android、iOS全平台终端的H5播放器。
 
 
 ## 功能说明
@@ -21,18 +21,18 @@ EasyPlayer.js H5播放器，是一款能够同时支持HTTP、RTMP、HTTP-FLV、
 
 - [x] 支持重连播放；
 
-## HTML 集成示例
+<br/>
 
-- 使用方式
+## 集成使用示例
 
-- [x] 普通集成
+- **普通集成**
 
+##### 1.引入
 copy  EasyWasmPlayer.js 到项目中
 
 copy libDecoder.wasm到项目或者www的根目录（一定要根目录）
 
-在 html 中引用 EasyWasmPlayer.js
-
+##### 2.在 html 中引用 EasyWasmPlayer.js
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -40,44 +40,46 @@ copy libDecoder.wasm到项目或者www的根目录（一定要根目录）
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="../dist/EasyWasmPlayer.js"></script>
+    <title>EasyWasmPlayer-Demo</title>
+    <script src="./EasyWasmPlayer.js"></script>
+    <style>
+      .box {
+        width:600px;
+        height:400px;
+      }
+    </style>
 </head>
 <body>
-    <div style="width:600px;height:400px;background-color:black;margin-left:200px">
-        <div id="265Player">
-        </div>
-        <script>
-            callbackFun = function (e) {
-                console.log(e);
-            }
-            var 265Player = new WasmPlayer(null,'265Player'，callbackFun,{cbUserPtr:this, decodeType:"auto", openAudio:1, BigPlay:false, Height:true})
-        </script>
+    <div class="box">
+      <div id="Player"></div>
     </div>
+    <script>
+      // 实例化播放器
+      var Player = new WasmPlayer(null,'Player'，callbackFun,{cbUserPtr:this, decodeType:"auto", openAudio:1, BigPlay:false, Height:true});
+      // 调用播放
+      Player.play('url', 1)
+    </script>
 </body>
 
 </html>
 ```
+<br/>
 
-- [x] vue集成
+- **VUE集成**
 
+##### 1.下载
 ```
   npm install @easydarwin/easywasmplayer --save
 ```
 
-- Vue 集成调用
+##### 2.拷贝
+Vue-Cli3.0 环境下
 
-copy node_modules/@easydarwin/easywasmplayer/EasyWasmPlayer.js 到public文件目录
+copy node_modules/@easydarwin/easywasmplayer/EasyWasmPlayer.js 到项目public目录下
 
-copy node_modules/@easydarwin/easywasmplayer/libDecoder.wasm 到项目根目录
+copy node_modules/@easydarwin/easywasmplayer/libDecoder.wasm 到项目public目录下
 
-
-**注意：** 若出现libDecoder.wasm的文件错误是此文件路径不对
-
-在 html 中引用 EasyWasmPlayer.js
-
-#### demo
-
+##### 3.在项目public目录index.html引入
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -86,37 +88,69 @@ copy node_modules/@easydarwin/easywasmplayer/libDecoder.wasm 到项目根目录
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
-    <title>EasyPlayer-demo</title>
-    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <title>EasyWasmPlayer-Demo</title>
     <script src="./EasyWasmPlayer.js"></script>
   </head>
   <body>
-    <noscript>
-      <strong
-        >We're sorry but easynvr-token doesn't work properly without JavaScript
-        enabled. Please enable it to continue.</strong
-      >
-    </noscript>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
   </body>
 </html>
 ```
 
+##### 4.VUE中使用
+```vue
+<template>
+  <div class="box">
+    <div id="Player"></div>
+  </div>
+</template>
+<script>
+
+export default {
+  data() {
+    return {
+      player: '',
+      url: 'http://127.0.0.1:10080/fvod/PnCsnxdMg/video.m3u8'
+    }
+  },
+  mounted() {
+    // 实例化播放器
+    this.player = new WasmPlayer(null, 'Player', this.callbackfun)
+    // 调用播放
+    this.player.play(this.url, 1)
+  },
+  methods: {
+    callbackfun(e) {
+      console.log('callbackfun', e);
+    }
+  }  
+}
+</script>
+<style>
+  .box {
+    width:600px;
+    height:400px;
+  }
+</style>
+```
+
+**注意：** 若出现libDecoder.wasm的文件报404错误，提示找不到libDecoder.wasm文件，一定要排查是否存放在项目的根目录。
+
 ## 实例化参数
 
-var player = new wasmPlayer(url,ID，callbackFun,{cbUserPtr:this, decodeType"auto", openAudio"1" or "0", BigPlay"true" or "false", Height:" true" or "false});
+var player = new wasmPlayer(url,ID，callbackFun,{cbUserPtr:this, decodeType"auto" or "soft", openAudio"1" or "0", BigPlay"true" or "false", Height:" true" or "false});
 
-| 参数               | 说明                                             | 类型                       | 默认值 |
+| 参数               | 说明                                              | 类型                       | 默认值 |
 | ------------------ | ------------------------------------------------ | -------------------------- | ------ |
 | url                | 视频地址                                          | String                     | null    |
 | ID                 | 播放器实例的divID  (必传)                          | String                     | -      |
-| callbackFun        | 事件回调                                          |                            | -      |
+| callbackFun        | 事件回调                                          | function                    | -      |
 | cbUserPtr          | 自定义指针  (this的指向)                           |                            | this   |
-| decodeType         | 解码类型                                           |                            | auto   |
-| openAudio          | 是否打开音频                                       |Boolean                    | false   |
-| BigPlay            | 是否开启大的播放按钮                                |Boolean                     | false  |
+| decodeType         | 解码类型（auto：默认，soft：强制H265解码）          | String                      | auto   |
+| openAudio          | 是否打开音频                                       | Boolean                    | false   |
+| BigPlay            | 是否开启大的播放按钮                               | Boolean                     | false  |
 | Height             | 播放器尺寸是否继承父盒子的                          | Boolean                     | false |
+| UnLogo             | 是否隐藏LOGO                                      | Boolean                      | false |
 
 
 ### 录像播放相关属性
@@ -125,21 +159,21 @@ play(url,autoplay,currentTime)
 | 属性        | 说明                                   | 类型    | 默认值             |
 | --------   | -------------------------------------- | ------- | ------------------|
 | url        | 播放流地址                              | String | -                  |
-| autoplay   |   是否自动播放                           | Boolean | 默认0             |
-| currentTime|  视频开始时间(换算成秒)                   | Number | 默认this            |
+| autoplay   | 是否自动播放                           | Boolean | 默认0             |
+| currentTime| 视频开始时间(换算成秒)                   | Number | 默认this            |
 
 ## 事件
 
-| 方法名     | 说明         | 参数                                                    |
-| ---------- | ------------ | ---------------------                                  |
-| play       | 播放事件      | url:'流地址',autoplay: '自动播放',currentTime:'开始时间' |
-| pause      | 播放暂停     | -                                                       |
-| stop       | 停止播放     | -                                                       |
-| openAudio  | 打开声音      | -                                                      |
-| closeAudio | 关闭声音      | -                                                      |
-| startLoding| 开始加载动画  | -                                                   |
-| endLoding  | 结束加载动画  | -                                                   |
-| fullScreen  | 开启或退出全屏  | -                                                   |
+| 方法名      | 说明         | 参数                                                    |
+| ----------  | ------------ | ---------------------                                  |
+| play        | 播放事件      | url:'流地址',autoplay: '自动播放',currentTime:'开始时间' |
+| pause       | 播放暂停     | -                                                       |
+| destroy     | 停止播放     | -                                                       |
+| openAudio   | 打开声音      | -                                                      |
+| closeAudio  | 关闭声音      | -                                                      |
+| startLoding | 开始加载动画  | -                                                       |
+| endLoding   | 结束加载动画  | -                                                       |
+| fullScreen  | 开启或退出全屏  | -                                                     |
 
 
 <br/>
