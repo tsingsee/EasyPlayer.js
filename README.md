@@ -138,28 +138,30 @@ export default {
 
 ## 实例化参数
 
-var player = new wasmPlayer(url,ID，callbackFun,{cbUserPtr:this, decodeType"auto" or "soft", openAudio"1" or "0", BigPlay"true" or "false", Height:" true" or "false});
+var player = new wasmPlayer(url,ID，callbackFun,{cbUserPtr:this,cfKbs: fn, decodeType:"auto" or "soft", openAudio"1" or "0", BigPlay"true" or "false", Height:" true" or "false, HideKbs:" true" or "false});
 
-| 参数               | 说明                                              | 类型                       | 默认值 |
-| ------------------ | ------------------------------------------------ | -------------------------- | ------ |
-| url                | 视频地址                                          | String                     | null    |
-| ID                 | 播放器实例的divID  (必传)                          | String                     | -      |
-| callbackFun        | 事件回调                                          | function                    | -      |
-| cbUserPtr          | 自定义指针  (this的指向)                           |                            | this   |
-| decodeType         | 解码类型（auto：默认，soft：强制H265解码）          | String                      | auto   |
-| openAudio          | 是否打开音频                                       | Boolean                    | false   |
-| BigPlay            | 是否开启大的播放按钮                               | Boolean                     | false  |
-| Height             | 播放器尺寸是否继承父盒子的                          | Boolean                     | false |
+| 参数               | 说明                                                                                                              | 类型                       | 默认值 |
+| ------------------ | ------------------------------------------------                                                                  |        -------------------------- | ------ |
+| url                | 视频地址                                                                                                           | String                     | null    |
+| ID                 | 播放器实例的divID(必传)                                                                                            | String                     | -      |
+| decodeType         | 解码类型(auto：默认，soft：强制H265解码)                                                                            | String                      | auto   |
+| openAudio          | 是否打开音频                                                                                                         | Boolean                    | false   |
+| BigPlay            | 是否开启大的播放按钮                                                                                                 | Boolean                     | false  |
+| Height             | 播放器尺寸是否继承父盒子的                                                                                            | Boolean                     | false |
+| HideKbs            | 是否隐藏实时码率                                                                                                     | Boolean                     | false |
+| cfKbs              | 码率速率回调(averageKbps:平均传输速率，averageKbs: 平均码率，currentKbps: 当前传输速率，currentKbs: 当前码率)            | function                    | -      |
+| callbackFun        | 事件回调                                                                                                            | function                    | -      |
+| cbUserPtr          | 自定义指针(this的指向)                                                                                                |                            | this   |
 
 
 ### 录像播放相关属性
 #### 注意：currentTime属性只在播放录像m3u8 有结束标记（#EXT-X-ENDLIST）的的流时生效。
 play(url,autoplay,currentTime)
-| 属性        | 说明                                   | 类型    | 默认值             |
-| --------   | -------------------------------------- | ------- | ------------------|
-| url        | 播放流地址                              | String | -                  |
-| autoplay   | 是否自动播放                           | Boolean | 默认0             |
-| currentTime| 视频开始时间(换算成秒)                   | Number | 默认this            |
+| 属性        | 说明                                          | 类型    | 默认值             |
+| --------   | --------------------------------------         | ------- | ------------------|
+| url        | 播放流地址                                     | String | -                  |
+| autoplay   | 是否自动播放(0：默认，1：自动播放)               | Number | 0             |
+| currentTime| 视频开始时间(换算成秒)                           | Number | 0            |
 
 ## 事件
 
