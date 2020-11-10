@@ -131,6 +131,7 @@ export default {
   }
 </style>
 ```
+## <a href="http://www.easydarwin.org/easywasmplayer/" target="_blank" title="在线演示">在线演示</a><br/>
 
 **注意：** 若出现libDecoder.wasm的文件报404错误，提示找不到libDecoder.wasm文件，一定要排查是否存放在项目的根目录。
 

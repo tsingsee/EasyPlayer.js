@@ -1,16 +1,22 @@
 <template>
   <div id="app">
-    <el-row>
-      <el-col :span="24">
-        <h4>H265播放器</h4>
-        <div class="player-box">
-          <div id="wasmPlayer"></div>
-        </div>
-        <el-input v-model="input" placeholder="请输入播放地址接口" size="mini"></el-input>
-        <p>列如：http://127.0.0.1:8080/flv/hls/stream.flv</p>
-        <el-button class="player-button" size="mini" type="success" @click="play">播放</el-button>
-      </el-col>
-    </el-row>
+      <h4>H265播放器</h4>
+      <el-input v-model="input" placeholder="请输入播放地址接口" size="mini"></el-input>
+      <p>列如：http://127.0.0.1:8080/flv/hls/stream.flv <a href="http://www.easydarwin.org/easywasmplayer/" target="_blank"> 在线演示</a></p>
+      <el-button class="player-button" size="mini" type="success" @click="play">播放</el-button>
+      <el-row class="box">
+        <el-col :xs="12" class="list"></el-col>
+        <el-col :xs="12" class="list"></el-col>
+        <el-col :xs="12" class="list"></el-col>
+        <el-col :xs="12" class="list"></el-col>
+      </el-row>
+      <!-- <h4>H265播放器</h4>
+      <div class="player-box">
+        <div id="wasmPlayer"></div>
+      </div>
+      <el-input v-model="input" placeholder="请输入播放地址接口" size="mini"></el-input>
+      <p>列如：http://127.0.0.1:8080/flv/hls/stream.flv</p>
+      <el-button class="player-button" size="mini" type="success" @click="play">播放</el-button> -->
   </div>
 </template>
 
@@ -52,32 +58,41 @@
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
   }
-  .el-row,
-  .el-col {
-    min-height: 300px;
-    max-width: 600px;
+  // .el-row,
+  // .el-col {
+  //   min-height: 300px;
+  //   max-width: 600px;
+  //   margin: auto;
+  // }
+  // .el-input {
+  //   padding: 5px;
+  //   box-sizing: border-box;
+  // }
+  // .player-button {
+  //   margin: 5px;
+  //   width: 100%;
+  // }
+  // p {
+  //   font-size: 12px;
+  //   color: #67c23a;
+  // }
+  // .player-box {
+  //   height: 400px;
+  //   width: 600px;
+  //   margin: auto;
+  //   margin-top: 2%;
+  //   border: 1px solid #eee;
+  // }
+  // .el-input__inner:focus {
+  //   border-color: #67c23a !important;
+  // }
+  .box {
+    max-width: 900px;
     margin: auto;
-  }
-  .el-input {
-    padding: 5px;
-    box-sizing: border-box;
-  }
-  .player-button {
-    margin: 5px;
-    width: 100%;
-  }
-  p {
-    font-size: 12px;
-    color: #67c23a;
-  }
-  .player-box {
-    height: 400px;
-    width: 600px;
-    margin: auto;
-    margin-top: 2%;
-    border: 1px solid #eee;
-  }
-  .el-input__inner:focus {
-    border-color: #67c23a !important;
+    margin-top: 20px;
+    .list {
+      padding-bottom: 50%;
+      background-color: red;
+    }
   }
 </style>
