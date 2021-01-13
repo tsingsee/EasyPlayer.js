@@ -1,0 +1,14 @@
+{
+  "name": "@easydarwin/easywasmplayer",
+  "version": "4.0.8",
+  "main": "EasyWasmPlayer.js",
+  "private": false,
+  "author": "likeadust <1246665453@qq.com>",
+  "scripts": {
+    "push": "npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.npmjs.com/package/@easydarwin/easywasmplayer"
+  }
+}
