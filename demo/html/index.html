@@ -12,17 +12,11 @@
     <h4 style="width:600px;margin: auto;">H265播放器</h4>
     <br>
     <div style="width:600px;height: 400px; background-color:pink;margin: auto;">
-        <div id="newplay" onClick="onplay"></div>
-        <p>列如：http://127.0.0.1:8080/flv/hls/stream.flv <a href="http://www.easydarwin.org/easywasmplayer/" target="_blank"> 在线演示</a></p>
-        <p style="color:red;font-size: 12px;">注意：本实例需要以服务方式启动 <a href="https://blog.csdn.net/weixin_43194037/article/details/108885134" target="_blank">搭建服务教程</a></p> 
+        <div id="newplay" onClick="onplay" style="width:100%;height: 100%;"></div>
         <input type="text" id="value">
         <button id="btn">播放</button>
     </div>
     <script>
-        // 播放器回调函数
-        callbackfun = function (e) { 
-            console.log(e);
-        }
         // 播放按钮
         var btn = document.getElementById('btn'); 
         // 地址栏
@@ -36,7 +30,9 @@
             player.play(value.value,1);
             console.log(value.value);
         }
-    
+        function callbackfun(e) {
+            console.log("回调数据e:",e);
+        }
     </script>
 </body>
 </html>

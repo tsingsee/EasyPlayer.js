@@ -164,16 +164,18 @@ play(url,autoplay,currentTime)
 
 ## 事件
 
-| 方法名      | 说明         | 参数                                                    |
-| ----------  | ------------ | ---------------------                                  |
-| play        | 播放事件      | url:'流地址',autoplay: '自动播放',currentTime:'开始时间' |
-| pause       | 播放暂停     | -                                                       |
-| destroy     | 停止播放     | -                                                       |
-| openAudio   | 打开声音      | -                                                      |
-| closeAudio  | 关闭声音      | -                                                      |
-| startLoding | 开始加载动画  | -                                                       |
-| endLoding   | 结束加载动画  | -                                                       |
+| 方法名      | 说明            | 参数                                                    |
+| ----------  | ------------    | ---------------------                                  |
+| play        | 播放事件        | url:'流地址',autoplay: '自动播放',currentTime:'开始时间' |
+| pause       | 播放暂停        | -                                                       |
+| destroy     | 停止播放        | -                                                       |
+| openAudio   | 打开声音        | -                                                      |
+| closeAudio  | 关闭声音        | -                                                      |
+| startLoading | 开始加载动画    | -                                                       |
+| endLoading   | 结束加载动画    | -                                                       |
 | fullScreen  | 开启或退出全屏  | -                                                     |
+| setSnap     | 设置封面照      | 封面图片地址                                          |
+| endSnap     | 清除封面照      | -                                                     |
 
 
 <br/>
