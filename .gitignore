@@ -1,0 +1,5 @@
+.idea
+.git
+.vscode
+.Ds_Store
+**node_modules
