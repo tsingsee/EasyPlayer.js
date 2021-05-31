@@ -667,6 +667,11 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@easydarwin/easyplayer@^3.2.7":
+  version "3.3.7"
+  resolved "https://registry.yarnpkg.com/@easydarwin/easyplayer/-/easyplayer-3.3.7.tgz#77eaccc69fdc999d39948cebea9946a2ccad1167"
+  integrity sha512-5f3xeqroES2bSha71aV9UxFFMCF+nhhR1Q5UPNX9dPcoa+RgWxH7s7462aWbA3pR7MsJ8jpozcOMArydAnt73A==
+
 "@intervolga/optimize-cssnano-plugin@^1.0.5":
   version "1.0.6"
   resolved "http://registry.npm.taobao.org/@intervolga/optimize-cssnano-plugin/download/@intervolga/optimize-cssnano-plugin-1.0.6.tgz#be7c7846128b88f6a9b1d1261a0ad06eb5c0fdf8"
@@ -2774,11 +2779,6 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
-easy-player@^2.2.6:
-  version "2.2.6"
-  resolved "http://registry.npm.taobao.org/easy-player/download/easy-player-2.2.6.tgz#b9f69c9b57f0674516b12856dc5051d242966470"
-  integrity sha1-ufacm1fwZ0UWsShW3FBR0kKWZHA=
-
 easy-stack@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/easy-stack/download/easy-stack-1.0.0.tgz#12c91b3085a37f0baa336e9486eac4bf94e3e788"
@@ -4756,9 +4756,9 @@ lodash.uniq@^4.5.0:
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
 lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0:
-  version "4.17.11"
-  resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
-  integrity sha1-s56mIp72B+zYniyN8SU2iRysm40=
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-symbols@^2.2.0:
   version "2.2.0"
