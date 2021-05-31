@@ -1,6 +1,6 @@
 {
-  "name": "easywasmplayer",
-  "version": "0.0.0",
+  "name": "easyplayer",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@easydarwin/easyplayer": "^3.2.7",
     "axios": "^0.18.0",
     "element-ui": "^2.5.4",
     "md5": "^2.2.1",
