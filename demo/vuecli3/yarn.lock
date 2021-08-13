@@ -667,6 +667,11 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@easydarwin/easyplayer@^3.3.10":
+  version "3.3.11"
+  resolved "https://registry.yarnpkg.com/@easydarwin/easyplayer/-/easyplayer-3.3.11.tgz#0cdaa7c2d2c74764e915829a3a00c5b7a0f59682"
+  integrity sha512-umkyV53ArZ3+XsOV3ShRpThiNtgLxdN9Y29tpcZLqYlOGjIUFsDBpBfkaTHgiXqtAJQ/1m680peSwgTL6jcYxQ==
+
 "@intervolga/optimize-cssnano-plugin@^1.0.5":
   version "1.0.6"
   resolved "http://registry.npm.taobao.org/@intervolga/optimize-cssnano-plugin/download/@intervolga/optimize-cssnano-plugin-1.0.6.tgz#be7c7846128b88f6a9b1d1261a0ad06eb5c0fdf8"
@@ -2773,11 +2778,6 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
-
-easy-player@^2.2.6:
-  version "2.2.6"
-  resolved "http://registry.npm.taobao.org/easy-player/download/easy-player-2.2.6.tgz#b9f69c9b57f0674516b12856dc5051d242966470"
-  integrity sha1-ufacm1fwZ0UWsShW3FBR0kKWZHA=
 
 easy-stack@^1.0.0:
   version "1.0.0"
@@ -5644,9 +5644,9 @@ path-key@^2.0.0, path-key@^2.0.1:
   integrity sha1-QRyttXTFoUDTpLGRDUDYDMn0C0A=
 
 path-parse@^1.0.6:
-  version "1.0.6"
-  resolved "http://registry.npm.taobao.org/path-parse/download/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
-  integrity sha1-1i27VnlAXXLEc37FhgDp3c8G0kw=
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
+  integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
 path-to-regexp@0.1.7:
   version "0.1.7"
