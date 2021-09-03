@@ -9,7 +9,7 @@
     },
     "dependencies": {
         "@easydarwin/easyplayer": "^3.3.10",
-        "axios": "^0.18.0",
+        "axios": "^0.21.1",
         "element-ui": "^2.5.4",
         "md5": "^2.2.1",
         "vue": "^2.6.6",
