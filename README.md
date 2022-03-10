@@ -1,7 +1,8 @@
 # EasyPlayer.js
 
 ## 简介
-EasyPlayer.js H5播放器，是一款能够同时支持HTTP、HTTP-FLV、HLS（m3u8）、WS视频直播与视频点播等多种协议，支持H.264、H.265、AAC等多种音视频编码格式，支持mse、wasm等多种解码方式，支持Windows、Linux、Android、iOS全平台终端的H5播放器，使用简单, 功能强大。
+
+集播放http-flv, hls, websocket 于一身的H5`视频直播/视频点播`播放器, 使用简单, 功能强大；
 
 ## 功能说明
 
@@ -10,10 +11,6 @@ EasyPlayer.js H5播放器，是一款能够同时支持HTTP、HTTP-FLV、HLS（m
 - [x] 支持 m3u8/HLS 播放;
 
 - [x] 支持 HTTP-FLV/WS-FLV 播放;
-
-- [x] 支持 H265编码视频;
-
-- [x] 支持 RTMP 播放;
 
 - [x] 支持直播和点播播放;
 
@@ -150,7 +147,7 @@ components: { EasyPlayer }
 | ------------------ | ------------------------------------------------ | -------------------------- | ------ |
 | video-url          | 视频地址                                         | String                     | -      |
 | video-title        | 视频右上角显示的标题                             | String                     | -      |
-| poster             | 视频封面图片                                     | String                     | -      |
+| snap-url           | 视频封面图片                                     | String                     | -      |
 | auto-play          | 自动播放                                         | Boolean                    | true   |
 | live               | 是否直播, 标识要不要显示进度条                   | Boolean                    | true   |
 | speed              | 是否显示倍速播放按钮。注意：当live为true时，此属性不生效 |Boolean                | true   |
@@ -167,7 +164,6 @@ components: { EasyPlayer }
 | isresolution       | 是否在播放 m3u8 时显示多清晰度选择               | Boolean                    | false  |
 | isresolution       | 供选择的清晰度 "yh,fhd,hd,sd", yh:原始分辨率     | fhd:超清，hd:高清，sd:标清 | -      |
 | resolutiondefault  | 默认播放的清晰度                                 | String                     | hd     |
-| decodeWasm         | 强制H265解码(支持:HLS/FLV/WS)                    | Boolean                     | false     |
 
 ### HTTP-FLV 播放相关属性
 #### 注意：此属性只在播放flv格式的流时生效。
@@ -176,17 +172,15 @@ components: { EasyPlayer }
 | hasaudio | 是否有音频，传递该属性可以加快启播速度 | Boolean | 默认不配置自动判断 |
 | hasvideo | 是否有视频，传递该属性可以加快启播速度 | Boolean | 默认不配置自动判断 |
 
-## 事件方法
+## 事件回调
 
-| 方法名            | 说明                | 参数                  |
-| ----------        | ------------        | --------------------- |
-| video-url         | 触发通知消息        | type: '', message: '' |
-| ended             | 播放结束            | -                     |
-| timeupdate        | 进度更新            | 当前时间进度          |
-| pause             | 暂停                | 当前时间进度          |
-| play              | 播放                | 当前时间进度          |
-| update:loading    | 加载状态回调         |-                  |
-| message           | 播放器回调信息       |-                   |
+| 方法名     | 说明         | 参数                  |
+| ---------- | ------------ | --------------------- |
+| video-url  | 触发通知消息 | type: '', message: '' |
+| ended      | 播放结束     | -                     |
+| timeupdate | 进度更新     | 当前时间进度          |
+| pause      | 暂停         | 当前时间进度          |
+| play       | 播放         | 当前时间进度          |
 
 
 ## 更多流媒体音视频资源
@@ -197,13 +191,13 @@ EasyDSS高性能互联网直播服务：<a href="http://www.easydss.com" target=
 
 EasyNVR安防视频可视化服务：<a href="http://www.easynvr.com" target="_blank" title="EasyNVR安防视频可视化服务">www.EasyNVR.com</a>
 
-EasyNVS视频综合管理平台：<a href="http://nvs.easynvr.com:10810/" target="_blank" title="EasyNVS视频综合管理平台">www.EasyNVS.com</a>
+EasyNVS视频综合管理平台：<a href="http://www.easynvs.com" target="_blank" title="EasyNVS视频综合管理平台">www.EasyNVS.com</a>
 
-EasyNTS上云网关<a href="http://www.tsingsee.com/product/easynts/" target="_blank" title="EasyNTS上云网关">www.EasyNTS.com</a>
+EasyNTS云组网：<a href="http://www.easynts.com" target="_blank" title="EasyNTS云组网">www.EasyNTS.com</a>
 
 EasyGBS国标GB/T28181服务器：<a href="http://www.easygbs.com" target="_blank" title="EasyGBS国标GB/T28181视频服务器">www.EasyGBS.com</a>
 
-EasyRTC视频会议云服务：<a href="http://www.tsingsee.com/product/easyrtc/" target="_blank" title="EasyRTC视频会议云服务：">www.EasyRTC.com</a>
+EasyRTS应急指挥平台：<a href="http://www.easyrts.com" target="_blank" title="EasyRTS应急指挥平台">www.EasyRTS.com</a>
 
 TSINGSEE青犀开放平台：<a href="http://open.tsingsee.com" target="_blank" title="TSINGSEE青犀开放平台">open.TSINGSEE.com</a>
 
