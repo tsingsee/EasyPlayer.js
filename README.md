@@ -89,6 +89,8 @@ copy node_modules/@easydarwin/easyplayer/dist/component/EasyPlayer-lib.min.js �
 
 在 html 中引用 dist/component/EasyPlayer-lib.min.js
 
+###H.265 copy node_modules/@easydarwin/easyplayer/dist/component/EasyPlayer.wasm 到 静态文件 根目录
+
 #### demo
 
 ```html
@@ -147,7 +149,7 @@ components: { EasyPlayer }
 | ------------------ | ------------------------------------------------ | -------------------------- | ------ |
 | video-url          | 视频地址                                         | String                     | -      |
 | video-title        | 视频右上角显示的标题                             | String                     | -      |
-| snap-url           | 视频封面图片                                     | String                     | -      |
+| poster             | 视频封面图片                                     | String                     | -      |
 | auto-play          | 自动播放                                         | Boolean                    | true   |
 | live               | 是否直播, 标识要不要显示进度条                   | Boolean                    | true   |
 | speed              | 是否显示倍速播放按钮。注意：当live为true时，此属性不生效 |Boolean                | true   |
@@ -164,6 +166,7 @@ components: { EasyPlayer }
 | isresolution       | 是否在播放 m3u8 时显示多清晰度选择               | Boolean                    | false  |
 | isresolution       | 供选择的清晰度 "yh,fhd,hd,sd", yh:原始分辨率     | fhd:超清，hd:高清，sd:标清 | -      |
 | resolutiondefault  | 默认播放的清晰度                                 | String                     | hd     |
+| isTransCoding      | 是否开启转raw                                   | Boolean                     | false     |
 
 ### HTTP-FLV 播放相关属性
 #### 注意：此属性只在播放flv格式的流时生效。
