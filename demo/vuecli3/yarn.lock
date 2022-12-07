@@ -667,6 +667,11 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@easydarwin/easyplayer@^5.0.3":
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/@easydarwin/easyplayer/-/easyplayer-5.0.5.tgz#8d726fc179e792951e24fe36ba345ed55020e0b4"
+  integrity sha512-gip21OGeY1YZDSjBDfqPvMy2ZrChr8edCHctUs6zoTxUDv7iaLYPQOYGY5nRl/h8o3t7p8pUBFQaIvjAQn+ifw==
+
 "@intervolga/optimize-cssnano-plugin@^1.0.5":
   version "1.0.6"
   resolved "http://registry.npm.taobao.org/@intervolga/optimize-cssnano-plugin/download/@intervolga/optimize-cssnano-plugin-1.0.6.tgz#be7c7846128b88f6a9b1d1261a0ad06eb5c0fdf8"
@@ -2531,9 +2536,9 @@ decamelize@^2.0.0:
     xregexp "4.0.0"
 
 decode-uri-component@^0.2.0:
-  version "0.2.0"
-  resolved "http://registry.npm.taobao.org/decode-uri-component/download/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
-  integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
+  integrity sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==
 
 deep-equal@^1.0.1:
   version "1.0.1"
@@ -2773,11 +2778,6 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
-
-easy-player@^2.2.6:
-  version "2.2.6"
-  resolved "http://registry.npm.taobao.org/easy-player/download/easy-player-2.2.6.tgz#b9f69c9b57f0674516b12856dc5051d242966470"
-  integrity sha1-ufacm1fwZ0UWsShW3FBR0kKWZHA=
 
 easy-stack@^1.0.0:
   version "1.0.0"
